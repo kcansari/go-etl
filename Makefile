@@ -1,10 +1,21 @@
 include .env
 
+# Define common command
+GO_RUN_CMD := go run main.go
+
+# Display version information
+version:
+	@$(GO_RUN_CMD) version
+
+csv-generate:
+	@$(GO_RUN_CMD) csv-generate
+
+# Run the application
 run:
-	go run main.go
+	@$(GO_RUN_CMD)
 
 build:
-	go build -o go-etl main.go
+	@go build -o go-etl main.go
 
 # Generate schema with improved error handling and options
 generate-schema:
